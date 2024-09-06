@@ -14,12 +14,7 @@
     .bg-teal-900 { background-color: #234e52; }
     .bg-gradient-to-from-teal-700to-teal-900 {background: linear-gradient(to bottom, #2c7a7b, #234e52);}
     #countMessage {
-      display: none; /* إخفاء العبارة بشكل افتراضي */
-    }
-    #errorMessage {
-      display: none; /* إخفاء رسالة الخطأ بشكل افتراضي */
-      color: red;
-      margin-top: 10px;
+      display: none; 
     }
   </style>
 </head>
@@ -39,100 +34,97 @@
   </nav>
   <!-- End of Navbar Section -->
 
-<!-- Start of Hero Section (with video on the left and text on the right) -->
-<div class="Hero">
-  <div class="relative bg-gradient-to-from-teal-700to-teal-900 text-white">
-    <!-- Odometer and text (Always 0) -->
-    <div class="pt-24">
-      <div class="container px-7 mx-auto">
-        <h3
-          id="AllPrayers"
-          class="my-4 text-black bg-clip-text text-transparent text-center text-4xl leading-tight"
-          style="color: #fff; font-size: 50px;"
-        >
-          <div id="countDisplay">0</div> <!-- Always set to 0 -->
-        </h3>
-      </div>
-
-      <div class="container px-7 mx-auto flex flex-wrap md:flex-row items-center justify-center">
-        <!-- Left Col (video) -->
-        <div class="w-full md:w-1/2 p-12 text-center md:text-left">
-          <!-- Replace the logo image with a video -->
-          <video
-            class="w-full md:w-4/5 z-50 rounded-full bg-gray-300"
-            controls
-            autoplay
-            loop
-            muted
-            style="border-radius: 5%;" 
+  <!-- Start of Hero Section (unchanged) -->
+  <div class="Hero">
+    <div class="relative bg-gradient-to-from-teal-700to-teal-900 text-white">
+      <!-- Odometer and text (Always 0) -->
+      <div class="pt-24">
+        <div class="container px-7 mx-auto">
+          <h3
+            id="AllPrayers"
+            class="my-4 text-black bg-clip-text text-transparent text-center text-4xl leading-tight"
+            style="color: #fff; font-size: 50px;"
           >
-            <source src="WhatsApp Video 2024-09-05 at 14.26.27.mp4" type="video/mp4" />
-            <!-- Add alternative formats for compatibility -->
-  
-          </video>
+            <div id="countDisplay">0</div> <!-- Always set to 0 -->
+          </h3>
         </div>
 
-        <!-- Right Col (Text) -->
-        <div class="w-full md:w-1/2 flex flex-col justify-center items-center text-center md:text-right">
-          <h1 class="my-4 text-5xl font-bold leading-tight">مليارية الصلاة على النبي</h1>
-          <p class="leading-normal text-2xl mb-8">
-            اللّٰهُمَّ صَلِّ عَلَىٰ سَيِّدِنَا مُحَمَّدٍ وَعَلَىٰ آلِهِ وَصَحْبِهِ وَسَلِّمْ
-          </p>
+        <div class="container px-7 mx-auto flex flex-wrap flex-col md:flex-row items-center">
+          <!-- Left Col -->
+          <div class="flex flex-col w-full md:w-3/5 justify-center items-center text-right">
+            <p class="uppercase tracking-loose w-full">موقع ذاكر</p>
+            <h1 class="my-4 text-5xl font-bold leading-tight">دعاء الوالد و ما ولد</h1>
+            <p class="leading-normal text-2xl mb-8">
+              ربناواجعلنا مسلميْن لك ومن ذريتنا أُمّةً مسلمةً لك وأرِنا مناسكنا
+              وتُب علينا إنّك أنت التوّاب الرحيم [البَقَرَةِ ١٢٨].
+            </p>
 
-          <!-- Input and buttons -->
-          <div class="flex flex-col items-center md:items-center">
-            <input
-              type="number"
-              id="inputValue"
-              class="px-4 py-2 mb-4 text-black border rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
-              placeholder="أدخل عدد أذكارك"
-            />
-            <button
-              onclick="handleAdd()"
-              class="px-4 py-2 bg-teal-600 text-white rounded-md hover:bg-teal-700"
-            >
-              إضافة
-            </button>
-            <p id="errorMessage" class="mt-2">يجب أن يكون الإدخال أقل من 1,000,000</p>
+            <!-- Input and buttons -->
+            <div class="flex flex-col items-center">
+              <input
+                type="number"
+                id="inputValue"
+                class="px-4 py-2 mb-4 text-black border rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
+                placeholder="أدخل عدد أذكارك"
+              />
+              <div class="flex space-x-4 space-x-reverse">
+                <button
+                  onclick="handleAdd()"
+                  class="px-4 py-2 bg-teal-600 text-white rounded-md hover:bg-teal-700"
+                >
+                  إضافة
+                </button>
+                <button
+                  onclick="handleReset()"
+                  class="px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700"
+                >
+                  تصفير
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Col (unchanged) -->
+          <div class="w-full md:w-2/5 p-12 text-center">
+            <img class="w-full md:w-5/5 z-50 rounded-full bg-gray-300" src="logo.png" alt="Logo" />
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- SVG Wave -->
-    <div class="relative -mt-9 lg:-mt-30">
-      <svg
-        viewBox="0 0 1428 174"
-        version="1.1"
-        xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
-      >
-        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-          <g transform="translate(-2.000000, 44.000000)" fill="#FFFFFF" fill-rule="nonzero">
-            <path
-              d="M0,0 C90.7283404,0.927527913 147.912752,27.187927 291.910178,59.9119003 C387.908462,81.7278826 543.605069,89.334785 759,82.7326078 C469.336065,156.254352 216.336065,153.6679 0,74.9732496"
-              opacity="0.100000001"
-            ></path>
-            <path
-              d="M100,104.708498 C277.413333,72.2345949 426.147877,52.5246657 546.203633,45.5787101 C666.259389,38.6327546 810.524845,41.7979068 979,55.0741668 C931.069965,56.122511 810.303266,74.8455141 616.699903,111.243176 C423.096539,147.640838 250.863238,145.462612 100,104.708498 Z"
-              opacity="0.100000001"
-            ></path>
-            <path
-              d="M1046,51.6521276 C1130.83045,29.328812 1279.08318,17.607883 1439,40.1656806 L1439,120 C1271.17211,77.9435312 1140.17211,55.1609071 1046,51.6521276 Z"
-              opacity="0.200000003"
-            ></path>
+      <!-- SVG Wave -->
+      <div class="relative -mt-9 lg:-mt-30">
+        <svg
+          viewBox="0 0 1428 174"
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+        >
+          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g transform="translate(-2.000000, 44.000000)" fill="#FFFFFF" fill-rule="nonzero">
+              <path
+                d="M0,0 C90.7283404,0.927527913 147.912752,27.187927 291.910178,59.9119003 C387.908462,81.7278826 543.605069,89.334785 759,82.7326078 C469.336065,156.254352 216.336065,153.6679 0,74.9732496"
+                opacity="0.100000001"
+              ></path>
+              <path
+                d="M100,104.708498 C277.413333,72.2345949 426.147877,52.5246657 546.203633,45.5787101 C666.259389,38.6327546 810.524845,41.7979068 979,55.0741668 C931.069965,56.122511 810.303266,74.8455141 616.699903,111.243176 C423.096539,147.640838 250.863238,145.462612 100,104.708498 Z"
+                opacity="0.100000001"
+              ></path>
+              <path
+                d="M1046,51.6521276 C1130.83045,29.328812 1279.08318,17.607883 1439,40.1656806 L1439,120 C1271.17211,77.9435312 1140.17211,55.1609071 1046,51.6521276 Z"
+                opacity="0.200000003"
+              ></path>
+            </g>
+            <g transform="translate(-4.000000, 76.000000)" fill="#FFFFFF" fill-rule="nonzero">
+              <path
+                d="M0.457,34.035 C57.086,53.198 98.208,65.809 123.822,71.865 C181.454,85.495 234.295,90.29 272.033,93.459 C311.355,96.759 396.635,95.801 461.025,91.663 C486.76,90.01 518.727,86.372 556.926,80.752 C595.747,74.596 622.372,70.008 636.799,66.991 C663.913,61.324 712.501,49.503 727.605,46.128 C780.47,34.317 818.839,22.532 856.324,15.904 C922.689,4.169 955.676,2.522 1011.185,0.432 C1060.705,1.477 1097.39,3.129 1121.236,5.387 C1161.703,9.219 1208.621,17.821 1235.4,22.304 C1285.855,30.748 1354.351,47.432 1440.886,72.354 L1441.191,104.352 L1.121,104.031 L0.457,34.035 Z"
+              ></path>
+            </g>
           </g>
-          <g transform="translate(-4.000000, 76.000000)" fill="#FFFFFF" fill-rule="nonzero">
-            <path d="M0.457,34.035 C57.086,53.198 98.208,65.809 123.822,71.865 C181.454,85.495 234.295,90.29 272.033,93.459 C311.355,96.759 396.635,95.801 461.025,91.663 C486.76,90.01 518.727,86.372 556.926,80.752 C595.747,74.596 622.372,70.008 636.799,66.991 C663.913,61.324 712.501,49.503 727.605,46.128 C780.47,34.317 818.839,22.532 856.324,15.904 C922.689,4.169 955.676,2.522 1011.185,0.432 C1060.705,1.477 1097.39,3.129 1121.236,5.387 C1161.703,9.219 1208.621,17.821 1235.4,22.304 C1285.855,30.748 1354.351,47.432 1440.886,72.354 L1441.191,104.352 L1.121,104.031 L0.457,34.035 Z"></path>
-          </g>
-        </g>
-      </svg>
+        </svg>
+      </div>
     </div>
   </div>
-</div>
-<!-- End of Hero Section -->
-
-
+  <!-- End of Hero Section -->
 
   <!-- Start of Count Section (with displayed message on right) -->
   <div class="container max-w-5xl mx-auto m-8">
@@ -206,23 +198,24 @@
   <!-- End of Footer Section -->
 
   <script>
-    let totalCount = 0; // المتغير الذي يجمع الإدخالات
     const inputValue = document.getElementById('inputValue');
     const countMessage = document.getElementById('countMessage');
     const countResult = document.getElementById('countResult');
-    const errorMessage = document.getElementById('errorMessage');
 
     function handleAdd() {
       const value = parseInt(inputValue.value, 10);
-      if (!isNaN(value) && value > 0 && value <= 1000000) {
-        totalCount += value; // جمع الإدخالات بشكل تراكمي
-        countResult.textContent = totalCount;
+      if (!isNaN(value) && value > 0) {
+        countResult.textContent = value;
         countMessage.style.display = 'block'; // إظهار الرسالة
-        errorMessage.style.display = 'none'; // إخفاء رسالة الخطأ
       } else {
-        errorMessage.style.display = 'block'; // إظهار رسالة الخطأ إذا كانت القيمة أكبر من 1,000,000
+        countMessage.style.display = 'none'; // إخفاء الرسالة إذا كانت القيمة غير صالحة
       }
-      inputValue.value = ""; // Reset input field
+      inputValue.value = ""; 
+    }
+
+    function handleReset() {
+      countMessage.style.display = 'none'; // إخفاء الرسالة
+      inputValue.value = "";
     }
   </script>
 </body>
