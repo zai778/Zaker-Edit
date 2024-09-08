@@ -21,6 +21,12 @@
       color: red;
       margin-top: 10px;
     }
+  video {
+      max-width: 100%;
+      height: auto;
+      margin-top: 20px;
+      cursor: pointer; /* لتوضيح أن الفيديو قابل للنقر */
+    }
   </style>
 </head>
 <body>
@@ -28,8 +34,8 @@
   <nav class="flex flex-wrap justify-between items-center py-4 px-8 bg-gradient-to-from-teal-700to-teal-900 shadow-lg">
     <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4 ml-0 sm:ml-5">
       <a href="/Home.html" class="text-white text-center sm:text-left">الصفحة الرئيسية</a>
-      <a href="/login" class="text-white text-center sm:text-left">تسجيل دخول</a>
-      <a href="/signup" class="text-white text-center sm:text-left">إنشاء حساب</a>
+      <a href="/Login.html" class="text-white text-center sm:text-left">تسجيل دخول</a>
+      <a href="/Signup.html" class="text-white text-center sm:text-left">إنشاء حساب</a>
     </div>
     <div class="text-white text-xl font-bold mr-0 sm:mr-5 mt-4 sm:mt-0">
       <a href="/Home.html">
@@ -56,15 +62,15 @@
 
       <div class="container px-7 mx-auto flex flex-wrap md:flex-row items-center justify-center">
         <!-- Left Col (video) -->
-        <div class="w-full md:w-1/2 p-12 text-center md:text-left">
+        <div class="w-full md:w-1/2 p-12 text-center md:text-left ">
           <!-- Replace the logo image with a video -->
           <video
+          id="myVideo" 
             class="w-full md:w-4/5 z-50 rounded-full bg-gray-300"
-            controls
             autoplay
             loop
             muted
-            style="border-radius: 5%;" 
+           style="border-radius: 12%;"
           >
             <source src="WhatsApp Video 2024-09-05 at 14.26.27.mp4" type="video/mp4" />
             <!-- Add alternative formats for compatibility -->
@@ -206,6 +212,16 @@
   <!-- End of Footer Section -->
 
   <script>
+        var video = document.getElementById("myVideo");
+
+    // Toggle play/pause when video is clicked
+    video.addEventListener('click', function() {
+      if (video.paused) {
+        video.play(); // Start the video if it's paused
+      } else {
+        video.pause(); // Pause the video if it's playing
+      }
+    });
     let totalCount = 0; // المتغير الذي يجمع الإدخالات
     const inputValue = document.getElementById('inputValue');
     const countMessage = document.getElementById('countMessage');
